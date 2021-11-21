@@ -25,7 +25,7 @@ void execution(){
 }
 
 void debug(){
-    Fraccion f1 = Fraccion(1, 2), f2 = Fraccion(8, 13);
+    Fraccion f1 = Fraccion(7, 8), f2 = Fraccion(5, -2);
     Fraccion suma = Fraccion::sumaFracciones(f1, f2);
     suma.imprimeFraccion();
 }
