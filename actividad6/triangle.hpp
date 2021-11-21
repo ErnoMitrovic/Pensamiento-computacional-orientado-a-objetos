@@ -16,18 +16,34 @@ public:
     double area();
 };
 
+/**
+ * @brief Construct a new triangle::triangle object
+ * 
+ */
 triangle::triangle(){
     vertex1 = point(0, 0);
     vertex2 = point(50, 30);
     vertex3 = point(25, 10);
 }
 
+/**
+ * @brief Construct a new triangle::triangle object
+ * 
+ * @param vertex1 
+ * @param vertex2 
+ * @param vertex3 
+ */
 triangle::triangle(point vertex1, point vertex2, point vertex3){
     this -> vertex1 = vertex1;
     this -> vertex2 = vertex2;
     this -> vertex3 = vertex3;
 }
 
+/**
+ * @brief Calcula el perimetro del triangulo
+ * 
+ * @return double 
+ */
 double triangle::perimeter(){
     double a, b, c;
     a = distancia(vertex1, vertex2);
@@ -36,6 +52,11 @@ double triangle::perimeter(){
     return a + b + c;
 }
 
+/**
+ * @brief Calcula el area del triangulo
+ * 
+ * @return double 
+ */
 double triangle::area(){
     double a, b, c, s;
     a = distancia(vertex1, vertex2);

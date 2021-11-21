@@ -70,6 +70,13 @@ void point::setY(float newY) {
     y = newY;
 }
 
+/**
+ * @brief Calcula la distancia
+ * 
+ * @param p1 punto 1
+ * @param p2 punto 2
+ * @return double 
+ */
 double distancia(point p1, point p2){
     double a, b;
     a = std::pow(p1.getX() - p2.getX(), 2);
