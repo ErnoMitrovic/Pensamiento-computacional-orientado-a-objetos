@@ -2,7 +2,7 @@
 #include <iostream>
 #include <array>
 
-int main(){
+void execution(){
     std::array <Fraccion, 7> fracciones;
     std::cout << "Ingresa las 7 fracciones\n";
     for (int i = 0; i < fracciones.size(); i++){
@@ -15,12 +15,21 @@ int main(){
         } while(den == 0);
         fracciones[i] = Fraccion(num, den);
     }
-    Fraccion suma1 = Fraccion(), suma2 = Fraccion(), suma3 = Fraccion();
-    suma1 = suma1.sumaFracciones(fracciones[1], fracciones[4]);
-    suma2 = suma2.sumaFracciones(fracciones[0], fracciones[3]);
-    suma3 = suma3.sumaFracciones(fracciones[6], fracciones[2]);
+    Fraccion suma1 = Fraccion::sumaFracciones(fracciones[1], fracciones[4]);
+    Fraccion suma2 = Fraccion::sumaFracciones(fracciones[0], fracciones[3]);
+    Fraccion suma3 = Fraccion::sumaFracciones(fracciones[6], fracciones[2]);
 
     suma1.imprimeFraccion();
     suma2.imprimeFraccion();
     suma3.imprimeFraccion();
+}
+
+void debug(){
+    Fraccion f1 = Fraccion(1, 2), f2 = Fraccion(8, 13);
+    Fraccion suma = Fraccion::sumaFracciones(f1, f2);
+    suma.imprimeFraccion();
+}
+
+int main(){
+    debug();
 }

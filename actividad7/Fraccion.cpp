@@ -97,12 +97,22 @@ int Fraccion::mcm(int den1, int den2){
  * @param f2 
  * @return Fraccion 
  */
-Fraccion Fraccion::sumaFracciones(const Fraccion &f1, const Fraccion &f2){
+Fraccion Fraccion::sumaFracciones(Fraccion &f1, Fraccion &f2){
     int commonDen = mcm(f1.getDen(), f2.getDen());
-    int suma = f1.getNum() * f1.getNum() / commonDen + f2.getNum() *f2.getNum() / commonDen;
+    int suma = commonDen * f1.getNum() / f1.getDen() +  commonDen * f2.getNum() / f2.getDen();
+    int divisor = gcd(commonDen, suma);
+    commonDen /= divisor;
+    suma /= divisor;
     return Fraccion(suma, commonDen);
 }
 
+/**
+ * @brief Imprime la fraccion en forma @code {.cpp}
+ * f = num/den;
+ * @endcode
+ * junto con su valor decimal
+ * 
+ */
 void Fraccion::imprimeFraccion(){
     std::cout << "Fraccion: " << this ->num << '/' << this ->den << std::endl
     << "Valor decimal: " << calcValorReal() << std::endl;

@@ -5,8 +5,8 @@ class Fraccion
 {
 private:
     int num, den;
-    int mcm(int den1, int den2);
-    int gcd(int den1, int den2);
+    static int mcm(int den1, int den2);
+    static int gcd(int den1, int den2);
 public:
     Fraccion();
     Fraccion(int num, int den);
@@ -21,7 +21,7 @@ public:
     void setNum(int num);
     void setDen(int den);
     double calcValorReal();
-    Fraccion sumaFracciones(const Fraccion &frac1, const Fraccion &frac2);
+    static Fraccion sumaFracciones(Fraccion &frac1, Fraccion &frac2);
     void imprimeFraccion();
 };
 
