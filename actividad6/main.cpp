@@ -1,5 +1,4 @@
 #include "triangle.hpp"
-#include "point.hpp"
 #include <iostream>
 
 int main(){
