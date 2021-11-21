@@ -17,15 +17,15 @@ public:
 };
 
 triangle::triangle(){
-    vertex1 = point(0,0);
-    vertex2 = point(50,30);
-    vertex3 = point(25,10);
+    vertex1 = point(0, 0);
+    vertex2 = point(50, 30);
+    vertex3 = point(25, 10);
 }
 
-triangle::triangle(point v1, point v2, point v3){
-    vertex1 = v1;
-    vertex2 = v2;
-    vertex3 = v3;
+triangle::triangle(point vertex1, point vertex2, point vertex3){
+    this -> vertex1 = vertex1;
+    this -> vertex2 = vertex2;
+    this -> vertex3 = vertex3;
 }
 
 double triangle::perimeter(){

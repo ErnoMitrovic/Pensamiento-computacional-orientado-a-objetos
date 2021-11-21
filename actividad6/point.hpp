@@ -10,7 +10,7 @@ public:
      * 
      */
     point(){}
-    point(int x, int y);
+    point(float x, float y);
 
     /**
      * @brief Destroy the point object
@@ -29,7 +29,7 @@ public:
  * @param x value
  * @param y value
  */
-point::point(int x, int y){
+point::point(float x, float y){
     this -> x = x;
     this -> y = y;
 }
