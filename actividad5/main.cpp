@@ -2,12 +2,12 @@
 #include <string>
 
 int main(){
-    alumno erno = alumno();
+    alumno erno;
     erno.setNombre("Ernesto Miranda");
     erno.setMatricula("A01656828");
     erno.setEdad(18);
     erno.setSemestre("Primero");
-    alumno sergio = alumno("A01655789", "Sergio Ramos", 18, "Primero");
+    alumno sergio ("A01655789", "Sergio Ramos", 18, "Primero");
     erno.imprimeAlumno();
     erno.cumpleanios();
     erno.imprimeAlumno();
