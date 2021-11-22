@@ -1,5 +1,5 @@
 #include "alumno.hpp"
-#include <string>
+#include <iostream>
 
 int main(){
     alumno erno;
@@ -13,4 +13,9 @@ int main(){
     erno.imprimeAlumno();
     std::string matriculaSergio = "A01567919";
     sergio.setMatricula(matriculaSergio);
+    std::cout << "Datos:" <<std::endl
+    << erno.getNombre() << std::endl 
+    << erno.getMatricula() << std::endl
+    << erno.getEdad() << std::endl
+    << erno.getSemestre() << std::endl;
 }
