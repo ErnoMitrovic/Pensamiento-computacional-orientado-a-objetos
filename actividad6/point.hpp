@@ -21,6 +21,7 @@ public:
     float getY();
     void setX(float newX);
     void setY(float newY);
+    static double distancia(point p1, point p2);
 };
 
 /**
@@ -77,7 +78,7 @@ void point::setY(float newY) {
  * @param p2 punto 2
  * @return double 
  */
-double distancia(point p1, point p2){
+double point::distancia(point p1, point p2){
     double a, b;
     a = std::pow(p1.getX() - p2.getX(), 2);
     b = std::pow(p1.getY() - p2.getY(), 2);

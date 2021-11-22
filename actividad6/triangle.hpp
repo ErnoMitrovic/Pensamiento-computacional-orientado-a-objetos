@@ -42,9 +42,9 @@ triangle::triangle(point v1, point v2, point v3) : vertex1(v1), vertex2(v2), ver
  */
 double triangle::perimeter(){
     double a, b, c;
-    a = distancia(vertex1, vertex2);
-    b = distancia(vertex2, vertex3);
-    c = distancia(vertex1, vertex3);
+    a = point::distancia(vertex1, vertex2);
+    b = point::distancia(vertex2, vertex3);
+    c = point::distancia(vertex1, vertex3);
     return a + b + c;
 }
 
@@ -55,9 +55,9 @@ double triangle::perimeter(){
  */
 double triangle::area(){
     double a, b, c, s;
-    a = distancia(vertex1, vertex2);
-    b = distancia(vertex1, vertex3);
-    c = distancia(vertex2, vertex3);
+    a = point::distancia(vertex1, vertex2);
+    b = point::distancia(vertex1, vertex3);
+    c = point::distancia(vertex2, vertex3);
     s = (a + b + c) / 2;
     return std::sqrt(s*(s-a)*(s-b)*(s-c));
 }
