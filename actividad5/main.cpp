@@ -2,7 +2,7 @@
 #include <iostream>
 
 void casoUno(){
-    Alumno erno;
+    Alumno erno = Alumno();
     erno.setMatricula("A01656828");
     erno.setNombre("Ernesto");
     erno.setEdad(18);
