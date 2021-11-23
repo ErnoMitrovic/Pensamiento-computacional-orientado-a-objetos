@@ -1,24 +1,24 @@
 #include <string>
 
-class alumno
+class Alumno
 {
 private:
     std::string matricula;
     std::string nombre;
     int edad;
-    std::string semestre;
+    std::string carrera;
 public:
-    alumno();
-    ~alumno();
-    alumno(std::string matricula, std::string nombre, int edad, std::string semestre);
+    Alumno();
+    ~Alumno();
+    Alumno(std::string matricula, std::string nombre, int edad, std::string carrera);
     std::string getMatricula();
     std::string getNombre();
     int getEdad();
-    std::string getSemestre();
+    std::string getCarrera();
     void setMatricula(std::string matricula);
     void setNombre(std::string nombre);
     void setEdad(int edad);
-    void setSemestre(std::string semestre);
+    void setCarrera(std::string carrera);
     void imprimeAlumno();
     void cumpleanios();
 };
