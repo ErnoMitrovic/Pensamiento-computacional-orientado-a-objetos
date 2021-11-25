@@ -1,0 +1,15 @@
+Caso 1:
+- Crear triangulo con constructor por defecto
+- Imprimir valores del triangulo
+
+Caso 2: 
+- Crear triangulo con valores introducidos por el usuario
+- Imprimir valores del usuario
+
+Caso 3:
+- Crear vertices colineales
+- Imprimir el resultado
+
+Caso 4:
+- Crear 2 vertices coincidentes
+- Imprimir el resultado
