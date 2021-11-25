@@ -1,6 +1,6 @@
 #include "Point.hpp"
 #include <cmath>
-
+#include <iostream>
 class Triangle
 {
 private:
@@ -14,6 +14,7 @@ public:
      */
     double perimeter();
     double area();
+    void printTriangle();
 };
 
 /**
@@ -29,9 +30,9 @@ Triangle::Triangle(){
 /**
  * @brief Construct a new Triangle::Triangle object
  * 
- * @param v1 
- * @param v2 
- * @param v3 
+ * @param v1 vertice 1
+ * @param v2 vertice 2
+ * @param v3 vertice 3
  */
 Triangle::Triangle(Point v1, Point v2, Point v3) : vertex1(v1), vertex2(v2), vertex3(v3) {}
 
@@ -60,4 +61,13 @@ double Triangle::area(){
     c = vertex1.distancia(vertex3);
     s = (a + b + c) / 2;
     return std::sqrt(s*(s-a)*(s-b)*(s-c));
+}
+
+void Triangle::printTriangle(){
+    std::cout << "Triangle vertices:\n" 
+    << "1.- (" << vertex1.getX() << ", " << vertex1.getY() << ")\n"
+    << "2.- (" << vertex2.getX() << ", " << vertex2.getY() << ")\n"
+    << "3.- (" << vertex3.getX() << ", " << vertex3.getY() << ")\n"
+    << "Perimetro: " << perimeter() << "u\n"
+    << "Area: " << area() << 'u' << (char) 253 << std::endl;
 }
