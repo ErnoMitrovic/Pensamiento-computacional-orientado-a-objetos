@@ -1,6 +1,14 @@
 {
     "files.associations": {
         "xstring": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "atomic": "cpp",
+        "compare": "cpp",
+        "limits": "cpp",
+        "streambuf": "cpp",
+        "type_traits": "cpp",
+        "xlocale": "cpp",
+        "xlocnum": "cpp",
+        "xutility": "cpp"
     }
 }

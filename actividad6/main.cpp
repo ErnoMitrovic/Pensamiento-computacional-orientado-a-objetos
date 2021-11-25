@@ -1,9 +1,9 @@
-#include "triangle.hpp"
+#include "Triangle.hpp"
 #include <iostream>
 
 int main(){
-    triangle def;
-    triangle user (point(-1, -1), point(30, 40), point(30, -5));
+    Triangle def;
+    Triangle user (Point(-1, -1), Point(30, 40), Point(30, -5));
     std::cout << "Default perimeter: " << def.perimeter() << std::endl
     << "Default area: " << def.area() << std::endl;
 

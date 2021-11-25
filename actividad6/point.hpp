@@ -1,6 +1,6 @@
 #include <cmath>
 
-class point
+class Point
 {
 private:
     float x, y;
@@ -9,28 +9,28 @@ public:
      * @brief Construct a new point object
      * 
      */
-    point(){}
-    point(float x, float y);
+    Point(){}
+    Point(float x, float y);
 
     /**
-     * @brief Destroy the point object
+     * @brief Destroy the Point object
      * 
      */
-    ~point(){}
+    ~Point(){}
     float getX();
     float getY();
-    void setX(float newX);
-    void setY(float newY);
-    double distancia(point p2);
+    void setX(float);
+    void setY(float);
+    double distancia(Point);
 };
 
 /**
- * @brief Construct a new point::point object
+ * @brief Construct a new Point::Point object
  * 
  * @param x value
  * @param y value
  */
-point::point(float x, float y){
+Point::Point(float x, float y){
     this -> x = x;
     this -> y = y;
 }
@@ -40,7 +40,7 @@ point::point(float x, float y){
  * 
  * @return float 
  */
-float point::getX(){
+float Point::getX(){
     return x;
 }
 
@@ -49,26 +49,26 @@ float point::getX(){
  * 
  * @return float 
  */
-float point::getY(){
+float Point::getY(){
     return y;
 }
 
 /**
  * @brief Setter of X
  * 
- * @param newX 
+ * @param x el nuevo valor de x 
  */
-void point::setX(float newX) {
-    x = newX;
+void Point::setX(float x) {
+    this-> x = x;
 }
 
 /**
  * @brief Setter of Y
  * 
- * @param newY 
+ * @param y 
  */
-void point::setY(float newY) {
-    y = newY;
+void Point::setY(float y) {
+    this->y = y;
 }
 
 /**
@@ -78,7 +78,7 @@ void point::setY(float newY) {
  * @param p2 punto 2
  * @return double 
  */
-double point::distancia(point p2){
+double Point::distancia(Point p2){
     double a, b;
     a = std::pow(x - p2.getX(), 2);
     b = std::pow(y - p2.getY(), 2);

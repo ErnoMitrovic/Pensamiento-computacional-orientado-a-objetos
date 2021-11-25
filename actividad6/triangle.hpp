@@ -1,15 +1,15 @@
-#include "point.hpp"
+#include "Point.hpp"
 #include <cmath>
 
-class triangle
+class Triangle
 {
 private:
-    point vertex1, vertex2, vertex3; // Podria ser un array
+    Point vertex1, vertex2, vertex3; // Podria ser un array
 public:
-    triangle();
-    triangle(point vertex1, point vertex2, point vertex3);
+    Triangle();
+    Triangle(Point vertex1, Point vertex2, Point vertex3);
     /**
-     * @brief Destroy the triangle object
+     * @brief Destroy the Triangle object
      * 
      */
     double perimeter();
@@ -17,30 +17,30 @@ public:
 };
 
 /**
- * @brief Construct a new triangle::triangle object
+ * @brief Construct a new Triangle::Triangle object
  * 
  */
-triangle::triangle(){
-    vertex1 = point(0, 0);
-    vertex2 = point(50, 30);
-    vertex3 = point(25, 10);
+Triangle::Triangle(){
+    vertex1 = Point(0, 0);
+    vertex2 = Point(50, 30);
+    vertex3 = Point(25, 10);
 }
 
 /**
- * @brief Construct a new triangle::triangle object
+ * @brief Construct a new Triangle::Triangle object
  * 
  * @param v1 
  * @param v2 
  * @param v3 
  */
-triangle::triangle(point v1, point v2, point v3) : vertex1(v1), vertex2(v2), vertex3(v3) {}
+Triangle::Triangle(Point v1, Point v2, Point v3) : vertex1(v1), vertex2(v2), vertex3(v3) {}
 
 /**
  * @brief Calcula el perimetro del triangulo
  * 
  * @return double 
  */
-double triangle::perimeter(){
+double Triangle::perimeter(){
     double a, b, c;
     a = vertex1.distancia(vertex2);
     b = vertex2.distancia(vertex3);
@@ -53,7 +53,7 @@ double triangle::perimeter(){
  * 
  * @return double 
  */
-double triangle::area(){
+double Triangle::area(){
     double a, b, c, s;
     a = vertex1.distancia(vertex2);
     b = vertex2.distancia(vertex3);
