@@ -14,6 +14,7 @@ public:
      * @brief Destroy the Triangle object
      * 
      */
+    ~Triangle(){}
     double perimeter();
     double area();
     void printTriangle();
