@@ -18,8 +18,8 @@ public:
     ~Fraccion() {}
     int getNum();
     int getDen();
-    void setNum(int num);
-    void setDen(int den);
+    void setNum(int);
+    void setDen(int);
     double calcValorReal();
     static Fraccion sumaFracciones(Fraccion &frac1, Fraccion &frac2);
     void imprimeFraccion();

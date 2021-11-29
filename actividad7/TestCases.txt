@@ -1,0 +1,17 @@
+PREVIO A TEST CASE
+Hacer un método que imprima las fracciones
+
+Test Case 1:
+    - Pedir 5 o más fracciones
+    - Pedir 3 sumas con sus índices
+    - Imprimir las sumas
+
+Test Case 2:
+    - Ingresar denominador 0
+    - Revisar el comportamiento del programa
+    - Ingresar denominador diferente de 0
+
+Test Case 3:
+    - Ingresa un numerador negativo 
+    - Revisar si el programa realiza una resta de fracciones
+    - Imprimir el resultado

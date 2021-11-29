@@ -2,12 +2,30 @@
 #include <iostream>
 
 /**
+ * @brief Setter del numerador
+ * 
+ * @param num 
+ */
+void Fraccion::setNum(int num) {
+    this -> num = num;
+}
+
+/**
+ * @brief Setter del denominador
+ * 
+ * @param den 
+ */
+void Fraccion::setDen(int den){
+    this -> den = den;
+}
+
+/**
  * @brief Construct a new Fraccion:: Fraccion object
  * 
  */
 Fraccion::Fraccion(){
-    num = 1;
-    den = 2;
+    setNum(1);
+    setDen(2);
 }
 
 /**
@@ -37,30 +55,12 @@ int Fraccion::getDen(){
 }
 
 /**
- * @brief Setter del numerador
- * 
- * @param num 
- */
-void Fraccion::setNum(int num) {
-    this -> num = num;
-}
-
-/**
- * @brief Setter del denominador
- * 
- * @param den 
- */
-void Fraccion::setDen(int den){
-    this -> den = den;
-}
-
-/**
  * @brief Calcular valor decimal de la fraccion
  * 
  * @return double 
  */
 double Fraccion::calcValorReal(){
-    return (double) num / (double) den;
+    return (double) num / den;
 }
 
 /**
@@ -99,11 +99,11 @@ int Fraccion::mcm(int den1, int den2){
  */
 Fraccion Fraccion::sumaFracciones(Fraccion &f1, Fraccion &f2){
     int commonDen = mcm(f1.getDen(), f2.getDen());
-    int suma = commonDen * f1.getNum() / f1.getDen() +  commonDen * f2.getNum() / f2.getDen();
-    int divisor = gcd(commonDen, suma);
+    int numerador = f1.getNum()*f2.getDen() + f1.getDen()*f2.getNum();
+    int divisor = gcd(commonDen, numerador);
+    numerador /= commonDen;
     commonDen /= divisor;
-    suma /= divisor;
-    return Fraccion(suma, commonDen);
+    return Fraccion(numerador, commonDen);
 }
 
 /**
