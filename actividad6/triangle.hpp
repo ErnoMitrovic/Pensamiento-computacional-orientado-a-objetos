@@ -82,7 +82,6 @@ Triangle::Triangle(Point vertex1, Point vertex2, Point vertex3) : Triangle::Tria
         this-> vertex3 = vertex3;
     } else{
         std::cout << "Triangulo invalido, declarando con constructor por defecto...\n";
-        
     }
 }
 
