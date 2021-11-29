@@ -34,7 +34,14 @@ Fraccion::Fraccion(){
  * @param n numerador
  * @param d denominador
  */
-Fraccion::Fraccion(int n, int d) : num(n), den(d) {}
+Fraccion::Fraccion(int num, int den) : Fraccion() {
+    if (den == 0){
+        std::cerr << "Denominador cero, usar constructor por defecto\n";
+    } else{
+        this -> num = num;
+        this -> den = den;
+    }
+}
 
 /**
  * @brief Getter de numerador
@@ -80,17 +87,6 @@ int Fraccion::gcd(int den1, int den2){
 }
 
 /**
- * @brief El calculo del minimo conum multiplo de 2 numeros
- * 
- * @param den1 
- * @param den2 
- * @return int 
- */
-int Fraccion::mcm(int den1, int den2){
-    return den1 * den2 / gcd(den1, den2);
-}
-
-/**
  * @brief Suma de fracciones con minimo comun denominador
  * 
  * @param f1 
@@ -98,12 +94,13 @@ int Fraccion::mcm(int den1, int den2){
  * @return Fraccion 
  */
 Fraccion Fraccion::sumaFracciones(Fraccion &f1, Fraccion &f2){
-    int commonDen = mcm(f1.getDen(), f2.getDen());
     int numerador = f1.getNum()*f2.getDen() + f1.getDen()*f2.getNum();
-    int divisor = gcd(commonDen, numerador);
-    numerador /= commonDen;
-    commonDen /= divisor;
-    return Fraccion(numerador, commonDen);
+    int denominador = f1.getDen()*f2.getDen();
+    // Maximo comun divisor
+    int mcd = gcd(numerador, denominador);
+    numerador /= mcd;
+    denominador /= mcd;
+    return Fraccion(numerador, denominador);
 }
 
 /**

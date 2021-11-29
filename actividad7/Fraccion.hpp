@@ -5,7 +5,6 @@ class Fraccion
 {
 private:
     int num, den;
-    static int mcm(int den1, int den2);
     static int gcd(int den1, int den2);
 public:
     Fraccion();

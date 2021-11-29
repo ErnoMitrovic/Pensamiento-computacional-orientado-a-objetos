@@ -2,6 +2,11 @@
 #include <iostream>
 #include <vector>
 
+/**
+ * @brief Imprime fracciones 
+ * 
+ * @param fracciones para imprimir
+ */
 void imprimirFracciones(std::vector<Fraccion> fracciones){
     for (int i = 0; i < fracciones.size(); i++)
     {
@@ -10,6 +15,12 @@ void imprimirFracciones(std::vector<Fraccion> fracciones){
     }
 }
 
+/**
+ * @brief Construye un vector de fracciones insertadas por el usuario
+ * 
+ * @param n tamaño del vector
+ * @return std::vector<Fraccion> 
+ */
 std::vector<Fraccion> insertaFracciones(const int n){
     std::vector <Fraccion> fracciones;
     for (int i = 1; i <= n; i++){
@@ -25,11 +36,15 @@ std::vector<Fraccion> insertaFracciones(const int n){
     return fracciones;
 }
 
-/*
-    - Pedir 5 o más fracciones
-    - Pedir 3 sumas con sus índices
-    - Imprimir las sumas
-*/
+/**
+ * @brief Test case 1
+ * @details 
+ * 1. Ingresa cuantas fracciones se van a ingresar
+ * 2. Construye un vector de fracciones
+ * 3. Aplicar 3 sumas con los indices que diga el usuario (0..n-1)
+ * 4. Imprimir las sumas
+ * 
+ */
 void casoUno(){
     int n;
     std::vector <Fraccion> fracciones;
@@ -54,26 +69,62 @@ void casoUno(){
     {
         sumas[i].imprimeFraccion();
     }
-    
 }
 
-void execution(){
-    std::vector <Fraccion> fracciones;
-    int n;
-    std::cout << "Cuantas funciones vas a querer?: ";
-    std::cin >> n;
-    std::cout << "Ingresa las fracciones\n";
-    Fraccion suma1 = Fraccion::sumaFracciones(fracciones[1], fracciones[4]);
-    Fraccion suma2 = Fraccion::sumaFracciones(fracciones[0], fracciones[3]);
-    Fraccion suma3 = Fraccion::sumaFracciones(fracciones[6], fracciones[2]);
-
-    suma1.imprimeFraccion();
-    suma2.imprimeFraccion();
-    suma3.imprimeFraccion();
+/**
+ * @brief Test case 2
+ * @details 
+ * 1. Ingresa denominador 0
+ * 2. Revisar el comportamiento del programa
+ * 3. Ingresar un denominador diferente de cero
+ * 4. Imprimir las fracciones
+ * 
+ */
+void casoDos(){
+    Fraccion fracError (2,0), fracValid (4, 5);
+    fracError.imprimeFraccion();
+    fracValid.imprimeFraccion();
 }
 
+/**
+ * @brief Test case 3
+ * @details 
+ * 1. Ingresa un numerador negativo 
+ * 2. Revisar si el programa realiza una resta de fracciones
+ * 3. Imprimir el resultado
+ */
+void casoTres(){
+    Fraccion fracNeg (-3,4), fracPos (2,5);
+    Fraccion suma = Fraccion::sumaFracciones(fracNeg, fracPos);
+    suma.imprimeFraccion();
+}
+
+/**
+ * @brief Menu de ejecucion de los test cases
+ * 
+ */
+void ejecucion(){
+    int eleccion;
+    std::cout << "Ingresa el test case (1 .. 3): ";
+    do {
+        std::cin >> eleccion;
+        switch(eleccion){
+            case 1:
+                casoUno();
+                break;
+            case 2:
+                casoDos();
+                break;
+            case 3:
+                casoTres();
+                break;
+            default:
+                std::cout << "Input invalido\n";
+                break;
+        }
+    } while (eleccion < 1 || eleccion > 3);
+}
 
 int main(){
-    Fraccion fracciones[5];
-    execution();
+    ejecucion();
 }
