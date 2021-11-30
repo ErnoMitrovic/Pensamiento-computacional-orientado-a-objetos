@@ -18,4 +18,15 @@ public:
     double getPrecio();
     std::string getName();
     std::string getClave();
+    std::vector<Categoria> getCategorias();
+
+    void setPrecio(double);
+    void setName(std::string);
+    void setClave(std::string);
+    // Preguntar al profesor
+    void setCategorias(std::vector<Categoria>);
+
+    void imprimeProducto();
+    void agregarCategoria(Categoria);
+    void eliminarCategoria(Categoria);
 };
