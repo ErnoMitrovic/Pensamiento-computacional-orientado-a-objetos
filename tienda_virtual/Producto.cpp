@@ -1,30 +1,6 @@
 #include "Producto.hpp"
+#include <cstdio>
 
-/*
-private:
-    double precio;
-    std::string nombre;
-    std::string clave;
-    std::string detalles;
-    double descuento;
-    int cantidad
-public:
-    ~Producto();
-
-    double getPrecio();
-    std::string getNombre();
-    std::string getClave();
-    std::string getDetalles();
-    double getDescuento();
-
-    void setPrecio(double);
-    void setNombre(std::string);
-    void setClave(std::string);
-    void setDetalles(std::string);
-    void setDescuento(double);
-
-    void imprimeProducto(void);
-*/
 
 /**
  * @brief Setter de precio
@@ -186,3 +162,24 @@ int Producto::getCantidad(){
     return cantidad;
 }
 
+/**
+ * @brief Imprime la informacion del producto
+ * 
+ */
+void Producto::imprimeProducto(){
+    std::printf("- Nombre del producto: %s\n
+    - Precio: $%f\n
+    - Clave: %s\n
+    - Detalles: \n%s\n
+    - Descuento: %f\n
+    - Cantidad: %d\n", nombre, precio, clave, detalles, descuento, cantidad);
+}
+
+/**
+ * @brief Calcula el subtotal dependiendo de la cantidad
+ * 
+ * @return double subtotal
+ */
+double Producto::subtotal(){
+    return (double) cantidad * precio;
+}
