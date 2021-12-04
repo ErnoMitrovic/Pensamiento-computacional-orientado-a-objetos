@@ -1,6 +1,11 @@
 #include "Producto.hpp"
-#include <cstdio>
+#include <iostream>
 
+/**
+ * @brief Destroy the Producto:: Producto object
+ * 
+ */
+Producto::~Producto(){}
 
 /**
  * @brief Setter de precio
@@ -167,19 +172,37 @@ int Producto::getCantidad(){
  * 
  */
 void Producto::imprimeProducto(){
-    std::printf("- Nombre del producto: %s\n
-    - Precio: $%f\n
-    - Clave: %s\n
-    - Detalles: \n%s\n
-    - Descuento: %f\n
-    - Cantidad: %d\n", nombre, precio, clave, detalles, descuento, cantidad);
+    std::cout << "Nombre: " << nombre << std::endl
+    << "Precio: $" << precio << std::endl
+    << "Clave: " << clave << std::endl
+    << "Detalles\n" << detalles << std::endl
+    << "Descuento: " << descuento * 100 << '%' << std::endl
+    << "Cantidad: " << cantidad << std::endl;
 }
 
 /**
- * @brief Calcula el subtotal dependiendo de la cantidad
+ * @brief Calcula el subtotal dependiendo de la cantidad y el precio
  * 
  * @return double subtotal
  */
 double Producto::subtotal(){
     return (double) cantidad * precio;
+}
+
+/**
+ * @brief Aumenta la cantidad especifica de productos de un tipo
+ * 
+ * @param cantidad a aumentar
+ */
+void Producto::aumentarCantidad(int cantidad){
+    this -> cantidad += cantidad;
+}
+
+/**
+ * @brief Disminuye la cantidad especificada
+ * 
+ * @param cantidad 
+ */
+void Producto::disminuirCantidad(int cantidad){
+    this -> cantidad -= cantidad;
 }

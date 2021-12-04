@@ -11,10 +11,10 @@ private:
     int cantidad;
 public:
     Producto();
-    Producto(double, std::string, std::string);
-    Producto(double, std::string, std::string, double);
-    Producto(double, std::string, std::string, std::string, double);
-    Producto(double, std::string, std::string, std::string, double, int);
+    Producto(double precio, std::string nombre, std::string clave);
+    Producto(double precio, std::string nombre, std::string clave, double descuento);
+    Producto(double precio, std::string nombre, std::string clave, std::string detalles, double descuento);
+    Producto(double precio, std::string nombre, std::string clave, std::string detalles, double descuento, int cantidad);
     ~Producto();
 
     double getPrecio();
@@ -33,4 +33,6 @@ public:
 
     void imprimeProducto(void);
     double subtotal(void);
+    void aumentarCantidad(int cantidad);
+    void disminuirCantidad(int cantidad);
 };
