@@ -82,10 +82,15 @@ bool Carrito::quitarProducto(Producto producto, int cantidad, int index){
  * 
  * @return double 
  */
-double Carrito::calcularTotal(){
+bool Carrito::pagarCarrito(Cliente cliente, Tarjeta tarjeta){
     double total = 0;
-    for(Producto producto : productos){
-        total += producto.subtotal();
+
+    if (cliente.validarPago(tarjeta.getDuenio(), tarjeta.getCvc())){
+        for(Producto producto : productos){
+            total += producto.subtotal();
+        }
+        std::cout << "Pagando... $" << total << std::endl;
+        return true;
     }
-    return total;
+    return false;
 }

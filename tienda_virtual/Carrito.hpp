@@ -1,4 +1,5 @@
 #include "Producto.hpp"
+#include "Cliente.hpp"
 #include <vector>
 
 class Carrito
@@ -18,5 +19,5 @@ public:
 
     void agregarProducto(Producto, int cantidad);
     bool quitarProducto(Producto, int cantidad, int index);
-    double calcularTotal(void);
+    bool pagarCarrito(Cliente, Tarjeta);
 };

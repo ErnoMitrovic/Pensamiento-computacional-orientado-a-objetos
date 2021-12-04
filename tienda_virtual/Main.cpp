@@ -71,7 +71,7 @@ void execution(){
                 carrito.imprimeCarrito();
                 break;
             case 4:
-                std::cout << carrito.calcularTotal() << std::endl;
+                std::cout << carrito.pagarCarrito(Cliente("Erno", 123), Tarjeta("Erno", 123)) << std::endl;
                 break;
             default:
                 std::cout << "Ingresa un numero valido (1 .. 4)\n";
