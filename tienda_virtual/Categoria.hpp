@@ -13,7 +13,7 @@ public:
 
     std::string getNombre(void);
 
-    void setNombre(void);
+    void setNombre(std::string);
 
     void imprimeCategoria(void);
 

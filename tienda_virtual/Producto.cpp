@@ -70,7 +70,7 @@ Producto::Producto() : precio(0), nombre("Vacio"), descuento(0), detalles("Sin d
  * @param n nombre
  * @param c clave
  */
-Producto::Producto(double p, std::string n, std::string c) : precio(p), nombre(n), clave(c), descuento(0), detalles("Sin detalles"){}
+Producto::Producto(double p, std::string n, std::string c) : precio(p), nombre(n), clave(c), descuento(0), detalles("Sin detalles"), cantidad(1){}
 
 
 /**
@@ -172,12 +172,12 @@ int Producto::getCantidad(){
  * 
  */
 void Producto::imprimeProducto(){
-    std::cout << "Nombre: " << nombre << std::endl
-    << "Precio: $" << precio << std::endl
-    << "Clave: " << clave << std::endl
-    << "Detalles\n" << detalles << std::endl
-    << "Descuento: " << descuento * 100 << '%' << std::endl
-    << "Cantidad: " << cantidad << std::endl;
+    std::cout << "+ Nombre: " << nombre << std::endl
+    << "+ Precio: $" << precio << std::endl
+    << "+ Clave: " << clave << std::endl
+    << "+ Detalles\n" << detalles << std::endl
+    << "+ Descuento: " << descuento * 100 << '%' << std::endl
+    << "+ Cantidad: " << cantidad << std::endl;
 }
 
 /**
@@ -201,8 +201,13 @@ void Producto::aumentarCantidad(int cantidad){
 /**
  * @brief Disminuye la cantidad especificada
  * 
- * @param cantidad 
+ * @param cantidad a disminuir
  */
 void Producto::disminuirCantidad(int cantidad){
-    this -> cantidad -= cantidad;
+    if (this -> cantidad >= cantidad){
+        this -> cantidad -= cantidad;
+    } else{
+        std::cout << "+ Cantidad a disminuir mayor a cantidad original, estableciendo como 0\n";
+        setCantidad(0);
+    }
 }
