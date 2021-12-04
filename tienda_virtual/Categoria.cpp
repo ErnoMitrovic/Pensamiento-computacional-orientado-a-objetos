@@ -60,7 +60,7 @@ int Categoria::getTamanio(){
 void Categoria::imprimeCategoria(){
     std::cout << "--- La categoria " << nombre << " tiene los productos:\n";
     for(int i = 0; i < productos.size(); i++){
-        std::cout << i + 1 << ")\n"; 
+        std::cout << "Producto " << i + 1 << std::endl; 
         productos[i].imprimeProducto();
         std::cout << '\n';
     }

@@ -64,6 +64,15 @@ void Carrito::agregarProducto(Producto producto, int cantidad){
     productos.push_back(producto);
 }
 
+/**
+ * @brief Quita el producto en un indice de acuerdo a la cantidad
+ * 
+ * @param producto 
+ * @param cantidad 
+ * @param index 
+ * @return true 
+ * @return false 
+ */
 bool Carrito::quitarProducto(Producto producto, int cantidad, int index){
     if (index > productos.size() || index < 0){
         return false;
@@ -85,7 +94,6 @@ bool Carrito::quitarProducto(Producto producto, int cantidad, int index){
  */
 bool Carrito::pagarCarrito(Cliente cliente, Tarjeta tarjeta){
     double total = 0;
-
     if (cliente.validarPago(tarjeta.getDuenio(), tarjeta.getCvc())){
         for(Producto producto : productos){
             total += producto.subtotal();

@@ -68,7 +68,7 @@ std::vector<Categoria> modificarCategorias(std::vector <Categoria> categorias){
         std::cout << "+ Clave: ";
         std::cin >> clave;
         std::cout << "+ Detalles";
-        std::getline(std::cin, detalles);
+        std::cin >> detalles;
         std::cout << "+ Descuento (en decimal): ";
         std::cin >> descuento;
         std::cout << "+ Cantidad: ";
@@ -84,18 +84,18 @@ void execution(std::vector<Categoria> & cats){
     std::vector<Categoria> categorias = cats;
     std::cout << "-----------------------------\n"
     << "- Les presentamos la tienda STEM con mayores descuentos -\n"
-    << "--- Science\tTechnology\tEngineering\tMathematics ---\n"
-    << "- Login como \n1) Cliente\n2)Administrador\n3)Terminar";
+    << "--- Science\tTechnology\tEngineering\tMathematics ---\n";
     int opcion, cvc;
     Cliente cl;
     Admin admin;
     std::string nombre, contrasenia, eleccion;
     do {
+        std::cout << "- Login como \n1) Cliente\n2) Administrador\n3) Salir\n";
         std::cin >> opcion;
         switch (opcion){
             case 1:
                 std::cout << "Ingresa tu nombre: ";
-                std::getline(std::cin, nombre);
+                std::cin >> nombre;
                 std::cout << "Ingresa tu cvc: ";
                 std::cin >> cvc;
                 cl = Cliente(nombre, cvc);
@@ -103,6 +103,7 @@ void execution(std::vector<Categoria> & cats){
                     std::cout << "Que hacer?\n"
                     << "1) Ver categorias\n2) Agregar productos al carrito\n3) Quitar productos del carrito\n4) Ver carrito\n5) Pagar\n";
                     std::cin >> opcion;
+                    std::string nombreProd;
                     switch(opcion){
                     case 1: 
                         imprimeCategorias(categorias);
@@ -125,20 +126,20 @@ void execution(std::vector<Categoria> & cats){
                         producto--;
                         std::cout << "- Ingresa la cantidad: ";
                         std::cin >> cantidad;
+                        nombreProd = categorias.at(categoria).getProducto(producto).getNombre();
                         // Agrega un producto dependiendo del input del usuario
-                        categorias.at(categoria).eliminarProducto(categorias.at(categoria).getProducto(producto), cantidad, producto);
                         carrito.agregarProducto(categorias.at(categoria).getProducto(producto), cantidad);
-                        std::cout << "Agregaste " << categorias.at(categoria).getProducto(producto).getNombre() << "!\n";
+                        categorias.at(categoria).eliminarProducto(categorias.at(categoria).getProducto(producto), cantidad, producto);
+                        std::cout << "Agregaste " << nombreProd << "!\n";
                         break;
                     case 3:
                         int el;
                         carrito.imprimeCarrito();
-                        std::cout << "- Que producto quieres quitar? (0 si ninguno): ";
-                        std::cin >> el;
                         do{
-                            std::cout << "- Input incorrecto, (0 .. " << carrito.getTamanio() << ")\n";
+                            std::cout << "Tamanio carrito: "<< carrito.getTamanio() << std::endl;
+                            std::cout << "- Que producto quieres quitar? (0 si ninguno): ";
                             std::cin >> el;
-                        } while(el < 0 || el > carrito.getTamanio());
+                        } while(el < 0 || el >= carrito.getTamanio() + 1);
                         if(el == 0){
                             break;
                         }
@@ -146,14 +147,14 @@ void execution(std::vector<Categoria> & cats){
                         std::cout << "- Ingresa la cantidad a quitar: ";
                         std::cin >> cantidad;
                         if(carrito.quitarProducto(carrito.getProductos()[el], cantidad, el)){
-                            std::cout << "+ Producto eliminado con exito!";
+                            std::cout << "+ Producto eliminado con exito!\n";
                         }
                         break;
                     case 4:
                         carrito.imprimeCarrito();
                         break;
                     case 5:
-                        std::cout << "Estas seguro? (SI/NO)";
+                        std::cout << "Estas seguro? (SI/NO)\n";
                         std::cin >> eleccion;
                         std::for_each(eleccion.begin(), eleccion.end(), [](char & c) {
                             c = ::toupper(c);
@@ -167,24 +168,25 @@ void execution(std::vector<Categoria> & cats){
                             std::cout << "+ Carrito pagado con exito!\n";
                         } else{
                             std::cout << "+ Error de validacion, pago cancelado\n";
+                            eleccion = "NO";
                         }
                         break;
                     default:
                         std::cout << "Ingresa un numero valido (1 .. 5)\n";
                         break;
                     }
-                } while (opcion != 5);
+                } while (opcion != 5 || eleccion == "NO");
                 break;
             case 2:
                 admin.imprimeAdmin();
                 do{
                     std::cout << "Que hacer?\n"
-                    << "1) Cambiar usuario\n2) Ver categorias\n3) Modificar categoria\n4) Regresar";
+                    << "1) Cambiar usuario\n2) Ver categorias\n3) Modificar categoria\n4) Regresar\n";
                     std::cin >> opcion;
                     switch(opcion){
                         case 1:
                             std::cout << "Ingresa nombre: ";
-                            std::getline(std::cin, nombre);
+                            std::cin >> nombre;
                             std::cout << "Ingresa contrasenia: ";
                             std::cin >> contrasenia;
                             admin = Admin(nombre, contrasenia);

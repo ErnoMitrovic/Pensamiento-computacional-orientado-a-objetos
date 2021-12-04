@@ -33,5 +33,5 @@ Cliente::~Cliente(){}
  * @return false si no coinciden
  */
 bool Cliente::validarPago(std::string duenio, int cvc){
-    return tarjeta.getDuenio() == duenio || tarjeta.getCvc() == cvc;
+    return tarjeta.getDuenio() == duenio && tarjeta.getCvc() == cvc;
 }
