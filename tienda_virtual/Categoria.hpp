@@ -1,4 +1,5 @@
 #include "Producto.hpp"
+#include "Admin.hpp"
 #include <vector>
 
 class Categoria

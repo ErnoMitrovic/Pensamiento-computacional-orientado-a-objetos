@@ -1,3 +1,6 @@
+#ifndef USUARIO_HPP
+
+#define USUARIO_HPP
 #include <string>
 
 class Usuario
@@ -12,3 +15,5 @@ public:
     void setNombre(std::string);
     void imprimeUsuario(void);
 };
+
+#endif

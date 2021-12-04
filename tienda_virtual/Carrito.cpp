@@ -47,8 +47,9 @@ void Carrito::setProductos(std::vector<Producto> productos){
  */
 void Carrito::imprimeCarrito(){
     std::cout << "--- El carrito tiene los productos ---\n";
-    for(auto producto : productos){
-        producto.imprimeProducto();
+    for (int i = 0; i < productos.size(); i++){
+        std::cout << i + 1 << ")\n";
+        productos[i].imprimeProducto();
     }
 }
 
@@ -90,6 +91,7 @@ bool Carrito::pagarCarrito(Cliente cliente, Tarjeta tarjeta){
             total += producto.subtotal();
         }
         std::cout << "Pagando... $" << total << std::endl;
+        productos.clear();
         return true;
     }
     return false;
