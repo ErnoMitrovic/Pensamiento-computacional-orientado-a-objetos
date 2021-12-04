@@ -49,15 +49,23 @@ void execution(){
                 break;
             case 2:
                 int categoria, producto, cantidad;
-                std::cout << "- Ingresa la categoria (numero): ";
-                std::cin >> categoria;
-                std::cout << "- Ingresa el producto (numero): ";
-                std::cin >> producto;
+                do{
+                    std::cout << "- Ingresa la categoria (1 .. " << categorias.size() << ")\n";
+                    std::cin >> categoria;
+                }while (categoria < 1 || categoria > categorias.size());
+                categoria --;
+                do{
+                    categorias.at(categoria).imprimeCategoria();
+                    std::cout << "- Ingresa el producto (1 .. " << categorias[categoria].getTamanio() << ")\n";
+                    std::cin >> producto;
+                } while(producto < 1 || producto > categorias[categoria].getTamanio());
+                producto--;
                 std::cout << "- Ingresa la cantidad: ";
                 std::cin >> cantidad;
-            
+                // Agrega un producto dependiendo del input del usuario
+                categorias.at(categoria).eliminarProducto(categorias.at(categoria).getProducto(producto), cantidad, producto);
                 carrito.agregarProducto(categorias.at(categoria).getProducto(producto), cantidad);
-                categorias.at(categoria).eliminarProducto(categorias.at(categoria).getProducto(producto), cantidad);
+                std::cout << "Agregaste " << categorias.at(categoria).getProducto(producto).getNombre() << "!\n";
                 break;
             case 3:
                 carrito.imprimeCarrito();

@@ -13,11 +13,12 @@ public:
 
     std::string getNombre(void);
     Producto getProducto(int indice);
+    int getTamanio(void);
 
     void setNombre(std::string);
 
     void imprimeCategoria(void);
 
     void agregarProducto(Producto);
-    bool eliminarProducto(Producto, int cantidad);
+    void eliminarProducto(Producto, int cantidad, int index);
 };

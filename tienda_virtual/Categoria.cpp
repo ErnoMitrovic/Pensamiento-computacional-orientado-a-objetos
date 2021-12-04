@@ -49,12 +49,16 @@ Producto Categoria::getProducto(int indice){
     return productos.at(indice);
 }
 
+int Categoria::getTamanio(){
+    return productos.size();
+}
+
 /**
  * @brief Imprime la informacion de categoria
  * 
  */
 void Categoria::imprimeCategoria(){
-    std::cout << "--- La categoria " << nombre << "tiene los productos:\n";
+    std::cout << "--- La categoria " << nombre << " tiene los productos:\n";
     for(int i = 0; i < productos.size(); i++){
         std::cout << i + 1 << ")\n"; 
         productos[i].imprimeProducto();
@@ -79,15 +83,9 @@ void Categoria::agregarProducto(Producto producto){
  * @return true 
  * @return false 
  */
-bool Categoria::eliminarProducto(Producto producto, int cantidad){
-    for(int i = 0; i < productos.size(); i++){
-        // Si es la misma clave que el producto introducido
-        if(productos.at(i).getClave().compare(producto.getClave())){
-            productos.at(i).disminuirCantidad(cantidad);
-            if(productos.at(i).getCantidad() == 0){
-                productos.erase(productos.begin() + i + 1);
-            }
-            return true;
-        }
-    } return false;
+void Categoria::eliminarProducto(Producto producto, int cantidad, int index){
+    productos.at(index).disminuirCantidad(cantidad);
+    if(productos.at(index).getCantidad() == 0){
+        productos.erase(productos.begin() + index + 1);
+    }
 }

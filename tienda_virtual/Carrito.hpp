@@ -17,6 +17,6 @@ public:
     void imprimeCarrito(void);
 
     void agregarProducto(Producto, int cantidad);
-    bool quitarProducto(Producto, int cantidad);
+    bool quitarProducto(Producto, int cantidad, int index);
     double calcularTotal(void);
 };

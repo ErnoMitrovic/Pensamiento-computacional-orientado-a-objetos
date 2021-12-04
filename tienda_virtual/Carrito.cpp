@@ -63,17 +63,18 @@ void Carrito::agregarProducto(Producto producto, int cantidad){
     productos.push_back(producto);
 }
 
-bool Carrito::quitarProducto(Producto producto, int cantidad){
-    for(int i = 0; i < productos.size(); i++){
-        // Si es la misma clave que el producto introducido
-        if(productos.at(i).getClave().compare(producto.getClave())){
-            productos.at(i).disminuirCantidad(cantidad);
-            if(productos.at(i).getCantidad() == 0){
-                productos.erase(productos.begin() + i + 1);
-            }
-            return true;
+bool Carrito::quitarProducto(Producto producto, int cantidad, int index){
+    if (index > productos.size() || index < 0){
+        return false;
+    }
+    if(productos.at(index).getClave() == producto.getClave()){
+        productos.at(index).disminuirCantidad(cantidad);
+        if(productos.at(index).getCantidad() == 0){
+            productos.erase(productos.begin() + index + 1);
         }
-    } return false;
+    return true;
+    }
+    return false;
 }
 
 /**
