@@ -1,3 +1,6 @@
+#ifndef PRODUCTO_HPP
+#define PRODUCTO_HPP
+
 #include <iostream>
 
 class Producto
@@ -36,3 +39,4 @@ public:
     void aumentarCantidad(int cantidad);
     void disminuirCantidad(int cantidad);
 };
+#endif

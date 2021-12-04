@@ -172,12 +172,8 @@ int Producto::getCantidad(){
  * 
  */
 void Producto::imprimeProducto(){
-    std::cout << "+ Nombre: " << nombre << std::endl
-    << "+ Precio: $" << precio << std::endl
-    << "+ Clave: " << clave << std::endl
-    << "+ Detalles\n" << detalles << std::endl
-    << "+ Descuento: " << descuento * 100 << '%' << std::endl
-    << "+ Cantidad: " << cantidad << std::endl;
+    std::cout << cantidad << ' '<< nombre << " $" << precio << " Descuento: " << descuento * 100 << '%' << std::endl
+    << "+ Detalles\n" << detalles << std::endl;
 }
 
 /**
@@ -186,7 +182,7 @@ void Producto::imprimeProducto(){
  * @return double subtotal
  */
 double Producto::subtotal(){
-    return (double) cantidad * precio;
+    return (double) cantidad * precio * (1-descuento);
 }
 
 /**

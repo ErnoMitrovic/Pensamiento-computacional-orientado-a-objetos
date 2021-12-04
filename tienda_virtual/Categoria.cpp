@@ -40,16 +40,25 @@ std::string Categoria::getNombre(){
 }
 
 /**
+ * @brief Getter de producto en un indice
+ * 
+ * @param indice 
+ * @return Producto 
+ */
+Producto Categoria::getProducto(int indice){
+    return productos.at(indice);
+}
+
+/**
  * @brief Imprime la informacion de categoria
  * 
  */
 void Categoria::imprimeCategoria(){
-    std::cout << "--- La categoria " << nombre << "---\n+ Tiene los productos:\n";
-    for(Producto producto : productos){
-        producto.imprimeProducto();
-    }
+    std::cout << "--- La categoria " << nombre << "tiene los productos:\n";
     for(int i = 0; i < productos.size(); i++){
+        std::cout << i + 1 << ")\n"; 
         productos[i].imprimeProducto();
+        std::cout << '\n';
     }
 }
 

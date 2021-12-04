@@ -12,6 +12,7 @@ public:
     ~Categoria();
 
     std::string getNombre(void);
+    Producto getProducto(int indice);
 
     void setNombre(std::string);
 
