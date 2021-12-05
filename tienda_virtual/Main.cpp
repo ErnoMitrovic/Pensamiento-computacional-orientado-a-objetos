@@ -86,7 +86,7 @@ std::vector<Categoria> modificarCategorias(std::vector <Categoria> categorias){
     std::cout << "Nuevo nombre: ";
     std::cin >> nombreCat;
     std::cout << "+ Cuantos productos tendra la categoria: ";
-    std::cin >> tamanioCat;
+    tamanioCat = validInt();
     Categoria catNueva (nombreCat);
     for(int i = 0; i < tamanioCat; i++){
         std::cout << "+ Ingresa los datos del producto " << i+1 << std::endl;
@@ -107,7 +107,6 @@ std::vector<Categoria> modificarCategorias(std::vector <Categoria> categorias){
         std::cout << "+ Detalles: ";
         std::cin >> detalles;
         std::cout << "+ Descuento (en decimal): ";
-        std::cin >> descuento;
         for (;;) {
             if (std::cin >> descuento) {
                 break;
@@ -123,7 +122,10 @@ std::vector<Categoria> modificarCategorias(std::vector <Categoria> categorias){
     }
     if(eleccion >= categorias.size()){
         categorias.push_back(catNueva);
-    } else{
+    } else if(0 == catNueva.getTamanio()){
+        categorias.erase(categorias.begin() + eleccion + 1);
+    }
+    else{
         categorias[eleccion] = catNueva;
     }
     return categorias;
@@ -234,14 +236,14 @@ void execution(std::vector<Categoria> & cats){
             case 2:
                 admin.imprimeAdmin();
                 do{
-                    std::cout << "Que hacer?\n"
+                    std::cout << "+ Que hacer?\n"
                     << "1) Cambiar usuario\n2) Ver categorias\n3) Modificar categoria\n4) Regresar\n";
                     opcion = validInt();
                     switch(opcion){
                         case 1:
-                            std::cout << "Ingresa nombre: ";
+                            std::cout << "+ Ingresa nombre: ";
                             std::cin >> nombre;
-                            std::cout << "Ingresa contrasenia: ";
+                            std::cout << "+ Ingresa contrasenia: ";
                             std::cin >> contrasenia;
                             admin = Admin(nombre, contrasenia);
                             break;
@@ -249,7 +251,13 @@ void execution(std::vector<Categoria> & cats){
                             imprimeCategorias(categorias);
                             break;
                         case 3: 
-                            categorias = modificarCategorias(categorias);
+                            std::cout << "+ Ingresa tu contrasenia: ";
+                            std::cin >> contrasenia;
+                            if (admin.validarCredenciales(admin.getNombre(), contrasenia)){
+                                categorias = modificarCategorias(categorias);
+                            } else {
+                                std::cout << "+ Credenciales incorrectas\n";
+                            }
                             break;
                         case 4:
                             std::cout << "--- Cambios guardados ---";

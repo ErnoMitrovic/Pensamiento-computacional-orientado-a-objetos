@@ -50,3 +50,7 @@ void Admin::imprimeAdmin(){
         std::cout << "+ Contrasenia: " << contrasenia <<std::endl;
     }
 }
+
+bool Admin::validarCredenciales(std::string nombre, std::string contrasenia){
+    return nombre == getNombre() && this -> contrasenia == contrasenia;
+}
