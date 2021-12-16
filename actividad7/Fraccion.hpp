@@ -7,7 +7,7 @@ private:
     int num, den;
     static int gcd(int, int);
 public:
-    Fraccion();
+    Fraccion(void);
     Fraccion(int num, int den);
 
     /**
@@ -15,13 +15,13 @@ public:
      * 
      */
     ~Fraccion() {}
-    int getNum();
-    int getDen();
+    int getNum(void);
+    int getDen(void);
     void setNum(int);
     void setDen(int);
-    double calcValorReal();
-    static Fraccion sumaFracciones(Fraccion &frac1, Fraccion &frac2);
-    void imprimeFraccion();
+    double calcValorReal(void);
+    static Fraccion sumaFracciones(Fraccion &, Fraccion &);
+    void imprimeFraccion(void);
 };
 
 #endif 
